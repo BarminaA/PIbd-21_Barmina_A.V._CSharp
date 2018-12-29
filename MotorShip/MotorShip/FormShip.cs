@@ -12,7 +12,7 @@ namespace MotorShip
 {
     public partial class FormShip : Form
     {
-        private Ship ship;
+        private ITransport ship;
 
         public FormShip()
         {
@@ -30,7 +30,15 @@ namespace MotorShip
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            ship = new Ship(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Black, Color.Blue);
+            ship = new BaseShip(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Black);
+            ship.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxShip.Width, pictureBoxShip.Height);
+            Draw();
+        }
+
+        private void buttonCreateShip_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            ship = new Ship(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Black, Color.Blue, true, true);
             ship.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxShip.Width, pictureBoxShip.Height);
             Draw();
         }
