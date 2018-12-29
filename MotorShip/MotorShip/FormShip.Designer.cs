@@ -34,6 +34,7 @@
             this.buttonDown = new System.Windows.Forms.Button();
             this.buttonLeft = new System.Windows.Forms.Button();
             this.buttonRight = new System.Windows.Forms.Button();
+            this.buttonCreateShip = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxShip)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,11 +105,22 @@
             this.buttonRight.UseVisualStyleBackColor = true;
             this.buttonRight.Click += new System.EventHandler(this.buttonMove_Click);
             // 
+            // buttonCreateShip
+            // 
+            this.buttonCreateShip.Location = new System.Drawing.Point(103, 13);
+            this.buttonCreateShip.Name = "buttonCreateShip";
+            this.buttonCreateShip.Size = new System.Drawing.Size(148, 23);
+            this.buttonCreateShip.TabIndex = 7;
+            this.buttonCreateShip.Text = "Создать теплоход";
+            this.buttonCreateShip.UseVisualStyleBackColor = true;
+            this.buttonCreateShip.Click += new System.EventHandler(this.buttonCreateShip_Click);
+            // 
             // FormShip
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(882, 453);
+            this.Controls.Add(this.buttonCreateShip);
             this.Controls.Add(this.buttonRight);
             this.Controls.Add(this.buttonLeft);
             this.Controls.Add(this.buttonDown);
@@ -131,6 +143,7 @@
         private System.Windows.Forms.Button buttonDown;
         private System.Windows.Forms.Button buttonLeft;
         private System.Windows.Forms.Button buttonRight;
+        private System.Windows.Forms.Button buttonCreateShip;
     }
 }
 
