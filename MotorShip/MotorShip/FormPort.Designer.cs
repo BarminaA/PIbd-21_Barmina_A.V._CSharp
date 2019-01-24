@@ -32,10 +32,11 @@
             this.buttonMoorBaseShip = new System.Windows.Forms.Button();
             this.buttonMoorShip = new System.Windows.Forms.Button();
             this.groupBox = new System.Windows.Forms.GroupBox();
-            this.Unmoor = new System.Windows.Forms.Button();
-            this.labelPlase = new System.Windows.Forms.Label();
-            this.maskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.pictureBoxUnmoor = new System.Windows.Forms.PictureBox();
+            this.maskedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.labelPlase = new System.Windows.Forms.Label();
+            this.Unmoor = new System.Windows.Forms.Button();
+            this.listBoxLevels = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPort)).BeginInit();
             this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUnmoor)).BeginInit();
@@ -51,7 +52,7 @@
             // 
             // buttonMoorBaseShip
             // 
-            this.buttonMoorBaseShip.Location = new System.Drawing.Point(1023, 13);
+            this.buttonMoorBaseShip.Location = new System.Drawing.Point(1016, 246);
             this.buttonMoorBaseShip.Name = "buttonMoorBaseShip";
             this.buttonMoorBaseShip.Size = new System.Drawing.Size(183, 79);
             this.buttonMoorBaseShip.TabIndex = 1;
@@ -61,7 +62,7 @@
             // 
             // buttonMoorShip
             // 
-            this.buttonMoorShip.Location = new System.Drawing.Point(1023, 98);
+            this.buttonMoorShip.Location = new System.Drawing.Point(1016, 331);
             this.buttonMoorShip.Name = "buttonMoorShip";
             this.buttonMoorShip.Size = new System.Drawing.Size(183, 79);
             this.buttonMoorShip.TabIndex = 2;
@@ -82,15 +83,21 @@
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Отшвартовать корабль";
             // 
-            // Unmoor
+            // pictureBoxUnmoor
             // 
-            this.Unmoor.Location = new System.Drawing.Point(6, 60);
-            this.Unmoor.Name = "Unmoor";
-            this.Unmoor.Size = new System.Drawing.Size(169, 30);
-            this.Unmoor.TabIndex = 4;
-            this.Unmoor.Text = "Отшвартоваться";
-            this.Unmoor.UseVisualStyleBackColor = true;
-            this.Unmoor.Click += new System.EventHandler(this.Unmoor_Click);
+            this.pictureBoxUnmoor.Location = new System.Drawing.Point(0, 95);
+            this.pictureBoxUnmoor.Name = "pictureBoxUnmoor";
+            this.pictureBoxUnmoor.Size = new System.Drawing.Size(183, 117);
+            this.pictureBoxUnmoor.TabIndex = 4;
+            this.pictureBoxUnmoor.TabStop = false;
+            // 
+            // maskedTextBox
+            // 
+            this.maskedTextBox.Location = new System.Drawing.Point(61, 32);
+            this.maskedTextBox.Mask = "00";
+            this.maskedTextBox.Name = "maskedTextBox";
+            this.maskedTextBox.Size = new System.Drawing.Size(100, 22);
+            this.maskedTextBox.TabIndex = 5;
             // 
             // labelPlase
             // 
@@ -101,27 +108,31 @@
             this.labelPlase.TabIndex = 4;
             this.labelPlase.Text = "Место";
             // 
-            // maskedTextBox
+            // Unmoor
             // 
-            this.maskedTextBox.Location = new System.Drawing.Point(61, 32);
-            this.maskedTextBox.Mask = "00";
-            this.maskedTextBox.Name = "maskedTextBox";
-            this.maskedTextBox.Size = new System.Drawing.Size(100, 22);
-            this.maskedTextBox.TabIndex = 5;
+            this.Unmoor.Location = new System.Drawing.Point(6, 60);
+            this.Unmoor.Name = "Unmoor";
+            this.Unmoor.Size = new System.Drawing.Size(169, 30);
+            this.Unmoor.TabIndex = 4;
+            this.Unmoor.Text = "Отшвартоваться";
+            this.Unmoor.UseVisualStyleBackColor = true;
+            this.Unmoor.Click += new System.EventHandler(this.Unmoor_Click);
             // 
-            // pictureBoxUnmoor
+            // listBoxLevels
             // 
-            this.pictureBoxUnmoor.Location = new System.Drawing.Point(0, 95);
-            this.pictureBoxUnmoor.Name = "pictureBoxUnmoor";
-            this.pictureBoxUnmoor.Size = new System.Drawing.Size(183, 117);
-            this.pictureBoxUnmoor.TabIndex = 4;
-            this.pictureBoxUnmoor.TabStop = false;
+            this.listBoxLevels.FormattingEnabled = true;
+            this.listBoxLevels.ItemHeight = 16;
+            this.listBoxLevels.Location = new System.Drawing.Point(1016, 12);
+            this.listBoxLevels.Name = "listBoxLevels";
+            this.listBoxLevels.Size = new System.Drawing.Size(183, 228);
+            this.listBoxLevels.TabIndex = 5;
             // 
             // FormPort
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1211, 731);
+            this.Controls.Add(this.listBoxLevels);
             this.Controls.Add(this.groupBox);
             this.Controls.Add(this.buttonMoorShip);
             this.Controls.Add(this.buttonMoorBaseShip);
@@ -146,5 +157,6 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox;
         private System.Windows.Forms.Label labelPlase;
         private System.Windows.Forms.Button Unmoor;
+        private System.Windows.Forms.ListBox listBoxLevels;
     }
 }
