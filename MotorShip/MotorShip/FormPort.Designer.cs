@@ -29,14 +29,13 @@
         private void InitializeComponent()
         {
             this.pictureBoxPort = new System.Windows.Forms.PictureBox();
-            this.buttonMoorBaseShip = new System.Windows.Forms.Button();
-            this.buttonMoorShip = new System.Windows.Forms.Button();
             this.groupBox = new System.Windows.Forms.GroupBox();
             this.pictureBoxUnmoor = new System.Windows.Forms.PictureBox();
             this.maskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.labelPlase = new System.Windows.Forms.Label();
             this.Unmoor = new System.Windows.Forms.Button();
             this.listBoxLevels = new System.Windows.Forms.ListBox();
+            this.buttonOrder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPort)).BeginInit();
             this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUnmoor)).BeginInit();
@@ -49,26 +48,6 @@
             this.pictureBoxPort.Size = new System.Drawing.Size(1011, 717);
             this.pictureBoxPort.TabIndex = 0;
             this.pictureBoxPort.TabStop = false;
-            // 
-            // buttonMoorBaseShip
-            // 
-            this.buttonMoorBaseShip.Location = new System.Drawing.Point(1016, 246);
-            this.buttonMoorBaseShip.Name = "buttonMoorBaseShip";
-            this.buttonMoorBaseShip.Size = new System.Drawing.Size(183, 79);
-            this.buttonMoorBaseShip.TabIndex = 1;
-            this.buttonMoorBaseShip.Text = "Пришвартовать корабль";
-            this.buttonMoorBaseShip.UseVisualStyleBackColor = true;
-            this.buttonMoorBaseShip.Click += new System.EventHandler(this.buttonMoorBaseShip_Click);
-            // 
-            // buttonMoorShip
-            // 
-            this.buttonMoorShip.Location = new System.Drawing.Point(1016, 331);
-            this.buttonMoorShip.Name = "buttonMoorShip";
-            this.buttonMoorShip.Size = new System.Drawing.Size(183, 79);
-            this.buttonMoorShip.TabIndex = 2;
-            this.buttonMoorShip.Text = "Пришвартовать теплоход";
-            this.buttonMoorShip.UseVisualStyleBackColor = true;
-            this.buttonMoorShip.Click += new System.EventHandler(this.buttonMoorShip_Click);
             // 
             // groupBox
             // 
@@ -127,15 +106,24 @@
             this.listBoxLevels.Size = new System.Drawing.Size(183, 228);
             this.listBoxLevels.TabIndex = 5;
             // 
+            // buttonOrder
+            // 
+            this.buttonOrder.Location = new System.Drawing.Point(1016, 246);
+            this.buttonOrder.Name = "buttonOrder";
+            this.buttonOrder.Size = new System.Drawing.Size(190, 58);
+            this.buttonOrder.TabIndex = 6;
+            this.buttonOrder.Text = "Заказать корабль";
+            this.buttonOrder.UseVisualStyleBackColor = true;
+            this.buttonOrder.Click += new System.EventHandler(this.buttonOrder_Click);
+            // 
             // FormPort
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1211, 731);
+            this.Controls.Add(this.buttonOrder);
             this.Controls.Add(this.listBoxLevels);
             this.Controls.Add(this.groupBox);
-            this.Controls.Add(this.buttonMoorShip);
-            this.Controls.Add(this.buttonMoorBaseShip);
             this.Controls.Add(this.pictureBoxPort);
             this.Name = "FormPort";
             this.Text = "Порт";
@@ -150,13 +138,12 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxPort;
-        private System.Windows.Forms.Button buttonMoorBaseShip;
-        private System.Windows.Forms.Button buttonMoorShip;
         private System.Windows.Forms.GroupBox groupBox;
         private System.Windows.Forms.PictureBox pictureBoxUnmoor;
         private System.Windows.Forms.MaskedTextBox maskedTextBox;
         private System.Windows.Forms.Label labelPlase;
         private System.Windows.Forms.Button Unmoor;
         private System.Windows.Forms.ListBox listBoxLevels;
+        private System.Windows.Forms.Button buttonOrder;
     }
 }

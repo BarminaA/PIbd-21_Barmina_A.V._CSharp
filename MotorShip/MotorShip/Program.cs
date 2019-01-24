@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace MotorShip
 {
+    public delegate void shipDelegate(ITransport ship);
     static class Program
     {
         [STAThread]

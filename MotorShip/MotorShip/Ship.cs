@@ -64,5 +64,10 @@ namespace MotorShip
                 g.FillEllipse(brushSmoke, _startPosX + 75, _startPosY - 60, 15, 10);
             }
         }
+
+        public void SetDopColor(Color color)
+        {
+            DopColor = color;
+        }
     }
 }
