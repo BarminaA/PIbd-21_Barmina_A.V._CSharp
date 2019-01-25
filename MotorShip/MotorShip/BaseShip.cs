@@ -19,6 +19,17 @@ namespace MotorShip
             MainColor = mainColor;
         }
 
+        public BaseShip(string info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 3)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+            }
+        }
+
         public override void MoveShip(Direction direction)
         {
             float step = MaxSpeed * 100 / Weight;
@@ -69,6 +80,11 @@ namespace MotorShip
             g.DrawEllipse(pen, _startPosX + 70, _startPosY - 15, 10, 10);
             g.DrawEllipse(pen, _startPosX + 90, _startPosY - 15, 10, 10);
             g.DrawEllipse(pen, _startPosX + 110, _startPosY - 15, 10, 10);
+        }
+
+        public override string ToString()
+        {
+            return MaxSpeed + ";" + Weight + ";" + MainColor.Name;
         }
     }
 }
