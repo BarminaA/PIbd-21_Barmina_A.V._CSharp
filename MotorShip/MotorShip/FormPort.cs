@@ -56,29 +56,7 @@ namespace MotorShip
                 }
             }
         }
-
-       /* private void buttonMoorShip_Click(object sender, EventArgs e)
-        {
-            if (listBoxLevels.SelectedIndex > -1)
-            {
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    ColorDialog dialogDop = new ColorDialog();
-                    if (dialogDop.ShowDialog() == DialogResult.OK)
-                    {
-                        var ship = new Ship(100, 1000, dialog.Color, dialogDop.Color, true, true);
-                        int place = port[listBoxLevels.SelectedIndex] + ship;
-                        if (place == -1)
-                        {
-                            MessageBox.Show("Нет свободных мест", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        Draw();
-                    }
-                }
-            }
-        }*/
-
+      
         private void Unmoor_Click(object sender, EventArgs e)
         {
             if (listBoxLevels.SelectedIndex > -1)
