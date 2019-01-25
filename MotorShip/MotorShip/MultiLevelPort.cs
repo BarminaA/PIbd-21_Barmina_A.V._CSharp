@@ -51,9 +51,9 @@ namespace MotorShip
                     WriteToFile("Level" + Environment.NewLine, fs);
                     for (int i = 0; i < countPlaces; i++)
                     {
-                        var ship = level[i];
-                        if (ship != null)
+                        try
                         {
+                            var ship = level[i];
                             if (ship.GetType().Name == "BaseShip")
                             {
                                 WriteToFile(i + ":BaseShip:", fs);
@@ -64,10 +64,10 @@ namespace MotorShip
                             }
                             WriteToFile(ship + Environment.NewLine, fs);
                         }
+                        finally { }
                     }
                 }
             }
-            return true;
         }
 
         private void WriteToFile(string text, FileStream stream)
@@ -80,7 +80,7 @@ namespace MotorShip
         {
             if (!File.Exists(filename))
             {
-                return false;
+                throw new FileNotFoundException();
             }
             string bufferTextFromFile = "";
             using (FileStream fs = new FileStream(filename, FileMode.Open))
@@ -105,7 +105,7 @@ namespace MotorShip
             }
             else
             {
-                return false;
+                throw new Exception("Неверный формат файла");
             }
             int counter = -1;
             ITransport ship = null;

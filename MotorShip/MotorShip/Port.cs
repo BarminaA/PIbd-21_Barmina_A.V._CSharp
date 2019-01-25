@@ -28,7 +28,7 @@ namespace MotorShip
         {
             if (p._places.Count == p._maxCount)
             {
-                return -1;
+                throw new PortOverflowException();
             }
             for (int i = 0; i < p._maxCount; i++)
             {
@@ -51,7 +51,7 @@ namespace MotorShip
                 p._places.Remove(index);
                 return ship;
             }
-            return null;
+            throw new PortNotFoundException(index);
         }
 
         private bool CheckFreePlace(int index)
@@ -92,7 +92,7 @@ namespace MotorShip
                 {
                     return _places[ind];
                 }
-                return null;
+                throw new PortNotFoundException(ind);
             }
 
             set
@@ -101,6 +101,10 @@ namespace MotorShip
                 {
                     _places.Add(ind, value);
                     _places[ind].SetPosition(5 + ind / 5 * _placeSizeWidth + 5, ind % 5 * _placeSizeHeight + 15, PictureWidth, PictureHeight);
+                }
+                else
+                {
+                    throw new PortOccupiedPlaceException(ind);
                 }
             }
         }
