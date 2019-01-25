@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MotorShip
 {
-    class Ship : BaseShip
+    class Ship : BaseShip, IComparable<Ship>, IEquatable<Ship>
     {
         public Color DopColor { private set; get; }
         public bool Tube { private set; get; }
@@ -87,6 +87,76 @@ namespace MotorShip
         public override string ToString()
         {
             return base.ToString() + ";" + DopColor.Name + ";" + Tube + ";" + Window;
+        }
+
+        public int CompareTo(Ship other)
+        {
+            var res = (this is Ship).CompareTo(other is Ship);
+            if (res != 0)
+            {
+                return res;
+            }
+            if (DopColor != other.DopColor)
+            {
+                DopColor.Name.CompareTo(other.DopColor.Name);
+            }
+            if (Tube != other.Tube)
+            {
+                return Tube.CompareTo(other.Tube);
+            }
+            if (Window != other.Window)
+            {
+                return Window.CompareTo(other.Window);
+            }
+            return 0;
+        }
+
+        public bool Equals(Ship other)
+        {
+            var res = (this as BaseShip).Equals(other as BaseShip);
+            if (!res)
+            {
+                return res;
+            }
+            if (GetType().Name != other.GetType().Name)
+            {
+                return false;
+            }
+            if (DopColor != other.DopColor)
+            {
+                return false;
+            }
+            if (Tube != other.Tube)
+            {
+                return false;
+            }
+            if (Window != other.Window)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            Ship carObj = obj as Ship;
+            if (carObj == null)
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(carObj);
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

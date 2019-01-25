@@ -117,6 +117,10 @@ namespace MotorShip
                 {
                     MessageBox.Show(ex.Message, "Переполнение", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                catch (PortAlreadyHaveException ex)
+                {
+                    MessageBox.Show(ex.Message, "Дублирование", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -162,6 +166,13 @@ MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 Draw();
             }
+        }
+
+        private void buttonSort_Click(object sender, EventArgs e)
+        {
+            port.Sort();
+            Draw();
+            logger.Info("Сортировка уровней");
         }
     }
 }
