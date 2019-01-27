@@ -59,7 +59,6 @@ namespace MotorShip
                 }
             }
         }
-
         private void Unmoor_Click(object sender, EventArgs e)
         {
             if (listBoxLevels.SelectedIndex > -1)
