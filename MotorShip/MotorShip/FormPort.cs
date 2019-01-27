@@ -13,6 +13,7 @@ namespace MotorShip
     public partial class FormPort : Form
     {
         MultiLevelPort port;
+        FormShipConfid form;
         private const int countLevel = 5;
 
         public FormPort()
@@ -56,28 +57,6 @@ namespace MotorShip
             }
         }
 
-        private void buttonMoorShip_Click(object sender, EventArgs e)
-        {
-            if (listBoxLevels.SelectedIndex > -1)
-            {
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    ColorDialog dialogDop = new ColorDialog();
-                    if (dialogDop.ShowDialog() == DialogResult.OK)
-                    {
-                        var ship = new Ship(100, 1000, dialog.Color, dialogDop.Color, true, true);
-                        int place = port[listBoxLevels.SelectedIndex] + ship;
-                        if (place == -1)
-                        {
-                            MessageBox.Show("Нет свободных мест", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        Draw();
-                    }
-                }
-            }
-        }
-
         private void Unmoor_Click(object sender, EventArgs e)
         {
             if (listBoxLevels.SelectedIndex > -1)
@@ -106,6 +85,29 @@ namespace MotorShip
         private void listBoxLevels_SelectedIndexChanged(object sender, EventArgs e)
         {
             Draw();
+        }
+
+        private void buttonOrder_Click(object sender, EventArgs e)
+        {
+            form = new FormShipConfid();
+            form.AddEvent(AddShip);
+            form.Show();
+        }
+
+        private void AddShip(ITransport ship)
+        {
+            if (ship != null && listBoxLevels.SelectedIndex > -1)
+            {
+                int place = port[listBoxLevels.SelectedIndex] + ship;
+                if (place > -1)
+                {
+                    Draw();
+                }
+                else
+                {
+                    MessageBox.Show("Корабль не удалось пришвартовать");
+                }
+            }
         }
     }
 }
