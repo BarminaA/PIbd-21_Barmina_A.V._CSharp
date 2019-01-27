@@ -49,22 +49,17 @@ namespace MotorShip
                 foreach (var level in portStages)
                 {
                     WriteToFile("Level" + Environment.NewLine, fs);
-                    for (int i = 0; i < countPlaces; i++)
+                    foreach (ITransport ship in level)
                     {
-                        try
+                        if (ship.GetType().Name == "BaseShip")
                         {
-                            var ship = level[i];
-                            if (ship.GetType().Name == "BaseShip")
-                            {
-                                WriteToFile(i + ":BaseShip:", fs);
-                            }
-                            if (ship.GetType().Name == "Ship")
-                            {
-                                WriteToFile(i + ":Ship:", fs);
-                            }
-                            WriteToFile(ship + Environment.NewLine, fs);
+                            WriteToFile(level.GetKey + ":BaseShip:", fs);
                         }
-                        finally { }
+                        if (ship.GetType().Name == "Ship")
+                        {
+                            WriteToFile(level.GetKey + ":Ship:", fs);
+                        }
+                        WriteToFile(ship + Environment.NewLine, fs);
                     }
                 }
             }
@@ -108,12 +103,14 @@ namespace MotorShip
                 throw new Exception("Неверный формат файла");
             }
             int counter = -1;
+            int counterShip = 0;
             ITransport ship = null;
             for (int i = 1; i < strs.Length; ++i)
             {
                 if (strs[i] == "Level")
                 {
                     counter++;
+                    counterShip = 0;
                     portStages.Add(new Port<ITransport>(countPlaces, pictureWidth, pictureHeight));
                     continue;
                 }
@@ -129,9 +126,13 @@ namespace MotorShip
                 {
                     ship = new Ship(strs[i].Split(':')[2]);
                 }
-                portStages[counter][Convert.ToInt32(strs[i].Split(':')[0])] = ship;
+                portStages[counter][counterShip++]= ship;
             }
-            return true;
+        }
+
+        public void Sort()
+        {
+            portStages.Sort();
         }
     }
 }
